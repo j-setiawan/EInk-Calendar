@@ -14,6 +14,7 @@ class WidgetBase:
         self._children_draw_border = False
         self._background = 255
         self._foreground = 0
+        self._yellow = False
 
     @property
     def height(self):

@@ -54,6 +54,12 @@ class Window7in5:
         self.window.draw(draw)
         return image
 
+    def render_yellow(self):
+        image = Image.new('1', (self.window.height, self.window.width), 255)
+        draw = ImageDraw.Draw(image)
+        self.window.draw_yellow(draw)
+        return image
+
     @property
     def events(self):
         return self._events

@@ -67,8 +67,9 @@ class Controller:
 
     def _render_and_display(self):
         image = self.window.render()
+        image_yellow = self.window.render_yellow()
         self.epd.init()
-        self.epd.display(self.epd.get_buffer(image))
+        self.epd.display(self.epd.getbuffer(image), self.epd.getbuffer(image_yellow))
         self.epd.sleep()
 
     def update_and_redraw(self):
@@ -88,7 +89,7 @@ class Controller:
                 if self.hour_counter == 24:
                     self.hour_counter = 0
                     self.epd.init()
-                    self.epd.clear(0xFE)
+                    self.epd.Clear(0xFE)
                 self.update_and_redraw()
                 logger.info('Periodic update of the screen')
                 time.sleep(3600)
@@ -97,7 +98,7 @@ class Controller:
         except KeyboardInterrupt:
             logger.info('Clearing screen on exit')
             self.epd.init()
-            self.epd.clear(0xFE)
+            self.epd.Clear(0xFE)
             self.epd.sleep()
             self.button_and_led.exit()
 

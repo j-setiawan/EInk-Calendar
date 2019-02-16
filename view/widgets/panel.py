@@ -10,4 +10,11 @@ class PanelWidget(WidgetBase):
     def draw(self, draw: ImageDraw):
         super().draw(draw)
         for child in self._children:
-            child.draw(draw)
+            if not child._yellow:
+                child.draw(draw)
+
+    def draw_yellow(self, draw: ImageDraw):
+        super().draw(draw)
+        for child in self._children:
+            if child._yellow:
+                child.draw(draw)

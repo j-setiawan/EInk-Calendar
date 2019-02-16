@@ -40,9 +40,9 @@ class EPD:
     def get_buffer(self, image: Image):
         return image
 
-    def display(self, image: Image):
+    def display(self, blackImage: Image, yellowImage: Image):
         print(self.save_path)
-        image.save(self.save_path)
+        blackImage.save(self.save_path)
 
     def clear(self, color):
         pass

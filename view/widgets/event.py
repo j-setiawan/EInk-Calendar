@@ -65,6 +65,7 @@ class EventsWidget(PanelWidget):
     def __init__(self, height: int, width: int, header_font: ImageFont,
                  event_font: ImageFont):
         super().__init__(height, width)
+        self._yellow = True
         header = TextWidget(height // 10, width, font=header_font)
         header.row = 0
         header.col = 0
