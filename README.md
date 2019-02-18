@@ -32,15 +32,7 @@ Also make sure you have at least Python 3.5 installed.
    * Instead of choosing the drive API, choose Calendar API v3 of scope
      `https://www.googleapis.com/auth/calendar.readonly`
    * We will need the client ID, client secrete, refresh token and access token
-   
-### Then hook up the wires as following:
 
-<img src="https://raw.githubusercontent.com/zli117/EInk-Calendar/master/diagram.png" width="600">
-
-Or download [diagram.fzz](https://github.com/zli117/EInk-Calendar/blob/master/diagram.fzz). Note that the labeling on 
-the breadboard corresponds to the wires on the hat comes with the screen. The wiring is the same as on page 12 of the 
-[official documentation](https://www.waveshare.com/w/upload/7/74/7.5inch-e-paper-hat-user-manual-en.pdf)
-   
 ### Once you have got all the credentials and hooked up the wires, you can run 
 `main.py` without any parameter to create the config file:
 ```bash

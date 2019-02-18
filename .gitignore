@@ -118,3 +118,5 @@ dmypy.json
 .idea/*
 *.ini
 *.png
+
+*.iml

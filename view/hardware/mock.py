@@ -3,20 +3,6 @@ from PIL import Image
 from utils.config_generator import Configurations
 
 
-class ButtonAndLed:
-    def __init__(self, controller):
-        pass
-
-    def exit(self):
-        print('EXIT')
-
-    def led_on(self):
-        print('LED ON')
-
-    def led_off(self):
-        print('LED OFF')
-
-
 class EPD:
     def __init__(self, config: Configurations):
         self.save_path = config.debug_save_path
@@ -37,14 +23,14 @@ class EPD:
     def init(self):
         pass
 
-    def get_buffer(self, image: Image):
+    def getbuffer(self, image: Image):
         return image
 
-    def display(self, blackImage: Image, yellowImage: Image):
+    def display(self, image_black: Image, image_yellow: Image):
         print(self.save_path)
-        blackImage.save(self.save_path)
+        image_black.save(self.save_path)
 
-    def clear(self, color):
+    def clear(self):
         pass
 
     def sleep(self):

@@ -32,10 +32,8 @@ class Controller:
             from view.hardware.mock import EPD, ButtonAndLed
         else:
             EPD = __import__('view.hardware.epd7in5', fromlist=['EPD']).EPD
-            ButtonAndLed = __import__('view.hardware.button_and_led',
-                                      fromlist=['ButtonAndLed']).ButtonAndLed
+
         self.epd = EPD(config)
-        self.button_and_led = ButtonAndLed(self)
 
         self.updating_flag = False
         self.hour_counter = 0
@@ -77,10 +75,8 @@ class Controller:
             return
 
         self.updating_flag = True
-        self.button_and_led.led_on()
         self._update_all()
         self._render_and_display()
-        self.button_and_led.led_off()
         self.updating_flag = False
 
     def run(self):
@@ -89,7 +85,7 @@ class Controller:
                 if self.hour_counter == 24:
                     self.hour_counter = 0
                     self.epd.init()
-                    self.epd.Clear(0xFE)
+                    self.epd.clear()
                 self.update_and_redraw()
                 logger.info('Periodic update of the screen')
                 time.sleep(3600)
@@ -98,9 +94,8 @@ class Controller:
         except KeyboardInterrupt:
             logger.info('Clearing screen on exit')
             self.epd.init()
-            self.epd.Clear(0xFE)
+            self.epd.clear()
             self.epd.sleep()
-            self.button_and_led.exit()
 
 
 config = load_or_create_config()
